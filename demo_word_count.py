@@ -1,3 +1,4 @@
+# This script analyzes survey responses and summarizes word counts
 import csv
 
 
