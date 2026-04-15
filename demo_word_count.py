@@ -37,7 +37,7 @@ for row in responses:
 
     # Truncate the response preview for display
     if len(response) > 60:
-        preview = response[:60] + "..."
+        preview = response[:80] + "..."
     else:
         preview = response
 
