@@ -10,7 +10,7 @@ with open(filename, newline="", encoding="utf-8") as f:
     for row in reader:
         responses.append(row)
 
-
+# Define a function to calculate the number of words in each response
 def count_words(response):
     """Count the number of words in a response string.
 
@@ -20,7 +20,7 @@ def count_words(response):
     return len(response.split())
 
 
-# Count words in each response and print a row-by-row summary
+# Loop through each response, calculate word count, and display a preview
 print(f"{'ID':<6} {'Role':<22} {'Words':<6} {'Response (first 60 chars)'}")
 print("-" * 75)
 
@@ -43,10 +43,14 @@ for row in responses:
 
     print(f"{participant:<6} {role:<22} {count:<6} {preview}")
 
-# Print summary statistics
+# Print summary statistics, calculate and display overall statistics for all responses
 print()
 print("── Summary ─────────────────────────────────")
 print(f"  Total responses : {len(word_counts)}")
 print(f"  Shortest        : {min(word_counts)} words")
 print(f"  Longest         : {max(word_counts)} words")
 print(f"  Average         : {sum(word_counts) / len(word_counts):.1f} words")
+
+
+# NOTE: This script assumes all responses are present and properly formatted.
+# It may break if there are missing or empty values in the dataset.
