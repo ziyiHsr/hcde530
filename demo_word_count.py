@@ -1,7 +1,7 @@
 import csv
 
 
-# Load the CSV file
+# Load the CSV file -> Read all survey responses from the CSV file into a list
 filename = "demo_responses.csv"
 responses = []
 
