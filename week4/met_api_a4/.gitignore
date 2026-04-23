@@ -1,0 +1,22 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.Python
+.venv/
+venv/
+env/
+
+# OS / editor
+.DS_Store
+*.swp
+.idea/
+.vscode/
+
+# Local / secrets (uncomment and extend as needed)
+# .env
+# *.local
+
+# Generated outputs (uncomment if you do not want to commit API exports)
+# *.csv
+# out/
