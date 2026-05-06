@@ -1,3 +1,6 @@
+# Python virtual environment
+.venv/
+
 .DS_Store
 # macOS custom folder icon (Finder)
 Icon?

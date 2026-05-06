@@ -100,12 +100,19 @@ def summarize_data(rows: list[dict[str, str]]) -> str:
 
 
 def main() -> None:
+    # Main workflow:
+    # 1. Load messy survey data
+    # 2. Clean and normalize fields
+    # 3. Write cleaned data to a new CSV file
+    # 4. Print summary and analysis
     base = Path(__file__).resolve().parent
     messy_path = base / "week3_survey_messy.csv"
     cleaned_path = base / "week3_survey_cleaned.csv"
 
     rows = load_survey_csv(messy_path)
+    # Clean raw survey data (normalize text fields and parse numbers)
     cleaned = clean_survey_rows(rows)
+    # Write cleaned dataset to a new CSV file for reuse and analysis
     write_survey_csv(cleaned, cleaned_path)
     print(f"Wrote cleaned data to {cleaned_path}\n")
 
@@ -113,6 +120,7 @@ def main() -> None:
     print()
 
     role_counts: dict[str, int] = {}
+    # Count how many responses fall into each role category
     for row in cleaned:
         r = row["role"]
         role_counts[r] = role_counts.get(r, 0) + 1
@@ -126,10 +134,12 @@ def main() -> None:
     print(f"\nAverage years of experience: {avg_experience:.1f}")
 
     scored_rows: list[tuple[str, int]] = []
+    # Collect rows with valid satisfaction scores for ranking
     for row in cleaned:
         if row["satisfaction_score"]:
             scored_rows.append((row["participant_name"], int(row["satisfaction_score"])))
 
+    # Sort by score descending (highest first), then by name
     scored_rows.sort(key=lambda x: (-x[1], x[0]))
     top5 = scored_rows[:5]
 
