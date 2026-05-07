@@ -15,6 +15,8 @@ role_counts = {}
 
 for row in rows:
     role = row["role"].strip().title()
+    if not role:
+        role = "(missing role)"
     if role in role_counts:
         role_counts[role] += 1
     else:
